@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Tree Capital - Indigenous-Owned Investment Infrastructure</title>
+    <meta name="description" content="Indigenous-owned investment infrastructure helping communities earn more, pay less, and maintain control of their capital.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-light: #E8E4DE;
+            --bg-secondary: #E6DBCA;
+            --card-bg: #CAB9A3;
+            --text-accent: #A08A73;
+            --highlight: #D1B57F;
+            --text-dark: #4a4a4a;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Forum', serif;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-accent);
+        }
+
+        .nav-brand img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-brand span {
+            font-family: 'Forum', serif;
+            font-size: 1.25rem;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--highlight);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--highlight);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #c4a66e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(209, 181, 127, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-accent);
+            border: 2px solid var(--text-accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-accent);
+            color: var(--white);
+        }
+
+        .nav-mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-mobile-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-accent);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-secondary) 100%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--text-accent);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+        }
+
+        .hero-callout {
+            background: var(--white);
+            border-left: 4px solid var(--highlight);
+            padding: 1.25rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .hero-callout p {
+            font-weight: 600;
+            color: var(--text-accent);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .hero-note {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-accent);
+            opacity: 0.8;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-visual img {
+            max-width: 300px;
+            opacity: 0.15;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--text-accent);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-dark);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Why LTC Section */
+        .why-section {
+            background: var(--white);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--highlight);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--white);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            color: var(--text-accent);
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        /* Tools Section */
+        .tools-section {
+            background: var(--bg-secondary);
+        }
+
+        .tool-container {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .tool-tabs {
+            display: flex;
+            background: var(--bg-light);
+            border-bottom: 1px solid var(--card-bg);
+        }
+
+        .tool-tab {
+            flex: 1;
+            padding: 1.25rem 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-accent);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tool-tab:hover {
+            background: var(--bg-secondary);
+        }
+
+        .tool-tab.active {
+            background: var(--white);
+            color: var(--highlight);
+        }
+
+        .tool-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--highlight);
+        }
+
+        .tool-content {
+            padding: 2rem;
+            display: none;
+        }
+
+        .tool-content.active {
+            display: block;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .input-panel, .output-panel {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .input-panel h4, .output-panel h4 {
+            font-size: 1.2rem;
+            color: var(--text-accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--card-bg);
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--highlight);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+        }
+
+        .upload-area:hover {
+            border-color: var(--highlight);
+            background: rgba(209, 181, 127, 0.05);
+        }
+
+        .upload-area p {
+            font-size: 0.9rem;
+            color: var(--text-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-area small {
+            font-size: 0.8rem;
+            color: var(--text-dark);
+            opacity: 0.7;
+        }
+
+        .output-card {
+            background: var(--white);
+            padding: 1.25rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .output-card h5 {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .output-card .value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-accent);
+        }
+
+        .output-card .demo-note {
+            font-size: 0.75rem;
+            color: var(--highlight);
+            margin-top: 0.5rem;
+        }
+
+        .charts-panel {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--card-bg);
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .chart-container {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .chart-container h5 {
+            font-size: 0.9rem;
+            color: var(--text-accent);
+            margin-bottom: 1rem;
+        }
+
+        .chart-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--card-bg);
+        }
+
+        .comparison-table th {
+            background: var(--bg-secondary);
+            color: var(--text-accent);
+            font-weight: 600;
+        }
+
+        .comparison-table tr:hover {
+            background: var(--bg-light);
+        }
+
+        .highlight-cell {
+            color: var(--highlight);
+            font-weight: 600;
+        }
+
+        /* Band Council View */
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .summary-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .summary-card h5 {
+            font-size: 1rem;
+            color: var(--text-accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .summary-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .summary-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--card-bg);
+            font-size: 0.9rem;
+        }
+
+        .summary-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* How It Works */
+        .how-section {
+            background: var(--white);
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: var(--card-bg);
+        }
+
+        .timeline-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding: 0 1rem;
+        }
+
+        .timeline-number {
+            width: 80px;
+            height: 80px;
+            background: var(--highlight);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Forum', serif;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 20px rgba(209, 181, 127, 0.3);
+        }
+
+        .timeline-step h4 {
+            font-size: 1.1rem;
+            color: var(--text-accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-step p {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .timeline-note {
+            text-align: center;
+            margin-top: 3rem;
+            font-style: italic;
+            color: var(--text-accent);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--bg-secondary);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .faq-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .faq-item h4 {
+            font-size: 1.1rem;
+            color: var(--text-accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 1.75rem;
+            color: var(--text-accent);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        .contact-form {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--card-bg);
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--highlight);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-accent);
+            color: var(--white);
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand img {
+            height: 32px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-brand span {
+            font-family: 'Forum', serif;
+            font-size: 1.25rem;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-privacy {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .footer-disclaimer {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Chatbot */
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--highlight);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(209, 181, 127, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-toggle svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--white);
+        }
+
+        .chatbot-panel {
+            position: fixed;
+            bottom: 6rem;
+            right: 2rem;
+            width: 360px;
+            max-height: 500px;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+            display: none;
+            flex-direction: column;
+            z-index: 998;
+            overflow: hidden;
+        }
+
+        .chatbot-panel.open {
+            display: flex;
+        }
+
+        .chatbot-header {
+            background: var(--text-accent);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header h4 {
+            font-size: 1rem;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            max-height: 300px;
+        }
+
+        .chat-message {
+            margin-bottom: 1rem;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+        }
+
+        .chat-message.bot {
+            background: var(--bg-light);
+            margin-right: 2rem;
+        }
+
+        .chat-message.user {
+            background: var(--highlight);
+            color: var(--white);
+            margin-left: 2rem;
+        }
+
+        .chat-disclaimer {
+            background: var(--bg-secondary);
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            color: var(--text-accent);
+            text-align: center;
+        }
+
+        .chatbot-suggestions {
+            padding: 1rem;
+            border-top: 1px solid var(--card-bg);
+        }
+
+        .chatbot-suggestions p {
+            font-size: 0.8rem;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .suggestion-btn {
+            display: block;
+            width: 100%;
+            padding: 0.6rem 1rem;
+            margin-bottom: 0.5rem;
+            background: var(--bg-light);
+            border: 1px solid var(--card-bg);
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .suggestion-btn:hover {
+            background: var(--bg-secondary);
+            border-color: var(--highlight);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content p,
+            .hero-callout {
+                max-width: 100%;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tool-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-mobile-toggle {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .tool-tabs {
+                flex-direction: column;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .chatbot-panel {
+                right: 1rem;
+                left: 1rem;
+                width: auto;
+            }
+        }
+
+        /* Dev Helper Notes */
+        .dev-note {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#" class="nav-brand">
+            <img src="assets/logo.png" alt="Little Tree Capital" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+            <span>LITTLE TREE CAPITAL</span>
+        </a>
+        <button class="nav-mobile-toggle" onclick="toggleMobileNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="#why">Why LTC</a>
+            <a href="#tools">Tools</a>
+            <a href="#how">How it works</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+            <a href="https://example.com/book" class="btn btn-primary">Book a 15-min intro</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Clarity. Trust. Control.</h1>
+                <p>Little Tree Capital is Indigenous-owned investment infrastructure built to help individuals, businesses, and band councils understand their options, reduce hidden fees, and make confident decisions about their money.</p>
+                <p>Our calculator tools show you exactly what fees cost you over time - whether you have $1,000 or $10 million.</p>
+                
+                <div class="hero-callout">
+                    <p>We own the investment infrastructure so Indigenous communities earn more, pay less, and never lose control of their capital.</p>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="https://example.com/book" class="btn btn-primary">Book a 15-min intro</a>
+                    <a href="#tools" class="btn btn-secondary">Try the fee calculator</a>
+                </div>
+
+                <p class="hero-note">Private by design - no banking logins. This demo does not store personal financial info.</p>
+            </div>
+            <div class="hero-visual">
+                <img src="assets/logo.png" alt="" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Why LTC Section -->
+    <section class="why-section" id="why">
+        <div class="container">
+            <h2 class="section-title">Why Little Tree Capital Exists</h2>
+            <p class="section-subtitle">We built the tools we wished existed - designed for Indigenous investors who deserve better.</p>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    </div>
+                    <h3>Keep more of your returns</h3>
+                    <p>Traditional investment products charge fees that compound over time, silently eating into your wealth. Our tools show you the real cost of fees so you can make informed choices.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    </div>
+                    <h3>Understand fees in plain language</h3>
+                    <p>MER, trailer fees, admin costs - the financial industry uses complex terms to obscure what you pay. We translate it into dollars and show you what you keep versus what you lose.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+                    </div>
+                    <h3>Indigenous-owned infrastructure</h3>
+                    <p>We do not sell third-party products. We own and govern the investment infrastructure, ensuring that Indigenous communities maintain control and benefit from the wealth they create.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools-section" id="tools">
+        <div class="container">
+            <h2 class="section-title">Little Tree Capital Calculator</h2>
+            <p class="section-subtitle">See what fees really cost you - and compare your options.</p>
+
+            <div class="tool-container">
+                <div class="tool-tabs">
+                    <button class="tool-tab active" onclick="switchTab(0)">Fee Analyzer</button>
+                    <button class="tool-tab" onclick="switchTab(1)">Compare Options</button>
+                    <button class="tool-tab" onclick="switchTab(2)">Band Council View</button>
+                </div>
+
+                <!-- Tab 1: Fee Analyzer -->
+                <div class="tool-content active" id="tab0">
+                    <div class="tool-grid">
+                        <div class="input-panel">
+                            <h4>Your Investment Details</h4>
+                            <div class="form-group">
+                                <label>Investment Type</label>
+                                <select id="investmentType" onchange="updateCalculations()">
+                                    <option value="funds">Mutual Funds</option>
+                                    <option value="gic">GIC</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Starting Amount ($)</label>
+                                    <input type="number" id="startAmount" value="100000" onchange="updateCalculations()">
+                                </div>
+                                <div class="form-group">
+                                    <label>Years</label>
+                                    <input type="number" id="years" value="10" onchange="updateCalculations()">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Estimated Annual Return (%)</label>
+                                <input type="number" id="annualReturn" value="7" step="0.1" onchange="updateCalculations()">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>MER (%)</label>
+                                    <input type="number" id="mer" value="2.2" step="0.1" onchange="updateCalculations()">
+                                </div>
+                                <div class="form-group">
+                                    <label>Admin Fee (%)</label>
+                                    <input type="number" id="adminFee" value="0.25" step="0.1" onchange="updateCalculations()">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Advisor Fee (%)</label>
+                                    <input type="number" id="advisorFee" value="0" step="0.1" onchange="updateCalculations()">
+                                </div>
+                                <div class="form-group">
+                                    <label>Other Fees (%)</label>
+                                    <input type="number" id="otherFee" value="0" step="0.1" onchange="updateCalculations()">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Monthly Contribution (Optional)</label>
+                                <input type="number" id="monthlyContrib" value="0" onchange="updateCalculations()">
+                            </div>
+                            
+                            <div class="upload-area">
+                                <p>Upload statement (PDF) - Private</p>
+                                <small>Your file stays private. This demo does not store uploads.</small>
+                            </div>
+                        </div>
+                        
+                        <div class="output-panel">
+                            <h4>Your Results</h4>
+                            <div class="output-card">
+                                <h5>Estimated Fees Paid</h5>
+                                <div class="value" id="feesPaid">$48,500</div>
+                                <div class="demo-note">Demo estimate - formula placeholder</div>
+                            </div>
+                            <div class="output-card">
+                                <h5>Estimated Ending Value</h5>
+                                <div class="value" id="endValue">$148,024</div>
+                                <div class="demo-note">Demo estimate - formula placeholder</div>
+                            </div>
+                            <div class="output-card">
+                                <h5>What You Keep vs Lose to Fees</h5>
+                                <div class="value" id="keepLose">75% / 25%</div>
+                                <div class="demo-note">Demo estimate - formula placeholder</div>
+                            </div>
+                            <div class="dev-note">Developer: Implement accurate compound growth calculations with fee drag here.</div>
+                        </div>
+                    </div>
+
+                    <div class="charts-panel">
+                        <div class="charts-grid">
+                            <div class="chart-container">
+                                <h5>Returns vs Fees</h5>
+                                <svg viewBox="0 0 200 150" id="barChart">
+                                    <rect x="30" y="30" width="50" height="100" fill="#D1B57F"/>
+                                    <rect x="30" y="80" width="50" height="50" fill="#A08A73"/>
+                                    <rect x="120" y="50" width="50" height="80" fill="#D1B57F"/>
+                                    <rect x="120" y="100" width="50" height="30" fill="#A08A73"/>
+                                    <text x="55" y="145" font-size="10" text-anchor="middle" fill="#4a4a4a">With Fees</text>
+                                    <text x="145" y="145" font-size="10" text-anchor="middle" fill="#4a4a4a">LTC</text>
+                                    <text x="10" y="35" font-size="8" fill="#A08A73">Returns</text>
+                                    <text x="10" y="95" font-size="8" fill="#A08A73">Fees</text>
+                                </svg>
+                            </div>
+                            <div class="chart-container">
+                                <h5>Growth Over Time</h5>
+                                <svg viewBox="0 0 200 150" id="lineChart">
+                                    <polyline points="20,120 60,100 100,75 140,55 180,30" fill="none" stroke="#D1B57F" stroke-width="3"/>
+                                    <polyline points="20,120 60,108 100,95 140,82 180,68" fill="none" stroke="#A08A73" stroke-width="3" stroke-dasharray="5,5"/>
+                                    <text x="100" y="145" font-size="9" text-anchor="middle" fill="#4a4a4a">Years</text>
+                                    <circle cx="180" cy="30" r="4" fill="#D1B57F"/>
+                                    <circle cx="180" cy="68" r="4" fill="#A08A73"/>
+                                    <text x="100" y="20" font-size="8" fill="#D1B57F">Without fees</text>
+                                    <text x="100" y="80" font-size="8" fill="#A08A73">With fees</text>
+                                </svg>
+                            </div>
+                            <div class="chart-container">
+                                <h5>Where Fees Go</h5>
+                                <svg viewBox="0 0 200 150" id="donutChart">
+                                    <circle cx="100" cy="75" r="50" fill="none" stroke="#E6DBCA" stroke-width="25"/>
+                                    <circle cx="100" cy="75" r="50" fill="none" stroke="#D1B57F" stroke-width="25" stroke-dasharray="157 314" stroke-dashoffset="0"/>
+                                    <circle cx="100" cy="75" r="50" fill="none" stroke="#A08A73" stroke-width="25" stroke-dasharray="78 314" stroke-dashoffset="-157"/>
+                                    <circle cx="100" cy="75" r="50" fill="none" stroke="#CAB9A3" stroke-width="25" stroke-dasharray="79 314" stroke-dashoffset="-235"/>
+                                    <text x="100" y="75" font-size="10" text-anchor="middle" fill="#4a4a4a">Fee</text>
+                                    <text x="100" y="85" font-size="10" text-anchor="middle" fill="#4a4a4a">Breakdown</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Compare Options -->
+                <div class="tool-content" id="tab1">
+                    <h4 style="margin-bottom: 1.5rem; color: var(--text-accent);">Typical Bank vs Little Tree Capital</h4>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Factor</th>
+                                <th>Typical Bank GIC</th>
+                                <th>Little Tree Capital</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Fixed Return</td>
+                                <td>2.5% - 4.5%</td>
+                                <td class="highlight-cell">6% Fixed</td>
+                            </tr>
+                            <tr>
+                                <td>Tax Treatment</td>
+                                <td>Fully Taxable</td>
+                                <td class="highlight-cell">Tax-exempt under Section 87</td>
+                            </tr>
+                            <tr>
+                                <td>Term</td>
+                                <td>1-5 years</td>
+                                <td>1 year fixed</td>
+                            </tr>
+                            <tr>
+                                <td>Ownership</td>
+                                <td>Bank shareholders</td>
+                                <td class="highlight-cell">Indigenous-owned</td>
+                            </tr>
+                            <tr>
+                                <td>Control</td>
+                                <td>Bank policies</td>
+                                <td class="highlight-cell">Indigenous governance</td>
+                            </tr>
+                            <tr>
+                                <td>Structure</td>
+                                <td>Deposit product</td>
+                                <td>Interest on note</td>
+                            </tr>
+                            <tr>
+                                <td>Hidden Fees</td>
+                                <td>Often present</td>
+                                <td class="highlight-cell">Transparent</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="dev-note" style="margin-top: 1.5rem;">Developer: Add dynamic comparison based on user inputs from Tab 1.</div>
+                </div>
+
+                <!-- Tab 3: Band Council View -->
+                <div class="tool-content" id="tab2">
+                    <h4 style="margin-bottom: 1.5rem; color: var(--text-accent);">Committee-Friendly Summary</h4>
+                    <p style="margin-bottom: 2rem; color: var(--text-dark);">A simplified view designed for trustees, council members, and committee presentations.</p>
+                    
+                    <div class="summary-cards">
+                        <div class="summary-card">
+                            <h5>Key Numbers</h5>
+                            <ul>
+                                <li><strong>Current Value:</strong> $24,500,000 (demo)</li>
+                                <li><strong>Projected Annual Fees:</strong> $612,500 (demo)</li>
+                                <li><strong>5-Year Fee Impact:</strong> $3,400,000 (demo)</li>
+                                <li><strong>LTC Alternative Savings:</strong> $850,000/year (demo)</li>
+                            </ul>
+                            <div class="demo-note">Demo estimates - formula placeholder</div>
+                        </div>
+                        <div class="summary-card">
+                            <h5>Structure Benefits</h5>
+                            <ul>
+                                <li>6% fixed annual return</li>
+                                <li>Tax-exempt under Section 87</li>
+                                <li>One-year fixed term</li>
+                                <li>Indigenous-owned infrastructure</li>
+                                <li>Third-party audited (PWC)</li>
+                            </ul>
+                        </div>
+                        <div class="summary-card">
+                            <h5>Risk Considerations</h5>
+                            <ul>
+                                <li>Returns are fixed, not market-linked</li>
+                                <li>Capital locked for term duration</li>
+                                <li>Structure validated by Norton Rose</li>
+                                <li>Independent fund administration</li>
+                            </ul>
+                        </div>
+                        <div class="summary-card">
+                            <h5>Questions for Your Advisor</h5>
+                            <ul>
+                                <li>What is our total fee burden annually?</li>
+                                <li>How do our returns compare after fees?</li>
+                                <li>What is our tax exposure on gains?</li>
+                                <li>Who owns/controls our investments?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dev-note" style="margin-top: 1.5rem;">Developer: Generate printable PDF summary for committee presentations.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section" id="how">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">A clear path from understanding to action.</p>
+
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="timeline-number">1</div>
+                    <h4>Tell us what you have</h4>
+                    <p>Share your current investments, statements, or simply what you know. We keep it private.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-number">2</div>
+                    <h4>We explain fees and options</h4>
+                    <p>See exactly what you pay in fees and how different options compare over time.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-number">3</div>
+                    <h4>We offer strategies and solutions</h4>
+                    <p>Learn about tax-efficient, Indigenous-owned alternatives that may work for your situation.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-number">4</div>
+                    <h4>You decide with clarity</h4>
+                    <p>Make confident decisions with full transparency. No pressure, no hidden agendas.</p>
+                </div>
+            </div>
+            <p class="timeline-note">For individuals, businesses, and band councils.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Answers to common questions about Little Tree Capital.</p>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>Is this tax or legal advice?</h4>
+                    <p>No. Little Tree Capital provides educational tools and information. We are not licensed to provide tax, legal, or investment advice. Please consult qualified professionals for advice specific to your situation.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do you store my statement uploads?</h4>
+                    <p>No. This demo does not store any files you upload. Your documents remain on your device. When our full platform launches, any data handling will be clearly disclosed with your consent.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What kinds of investments do you support?</h4>
+                    <p>Our calculator tools work with mutual funds, GICs, ETFs, and other common investment products. Our core offering is a 6% fixed return, tax-exempt investment structured as interest on a note.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can band councils use this?</h4>
+                    <p>Yes. Little Tree Capital is designed to serve individuals, businesses, trusts, and band councils. We have specific views and reports designed for committee and trustee presentations.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How do you get paid?</h4>
+                    <p>Little Tree Capital retains a spread between the returns generated by our institutional investments and the fixed rate paid to investors. This is disclosed transparently - no hidden fees.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What is the next step?</h4>
+                    <p>Book a 15-minute intro call. We will answer your questions, explain how the structure works, and help you determine if Little Tree Capital is right for your situation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Ready to learn more?</h3>
+                    <p>Book a conversation with our team. We will explain how Little Tree Capital works and answer any questions - no pressure, no sales pitch.</p>
+                    
+                    <div class="hero-callout" style="margin: 2rem 0;">
+                        <p>We own the investment infrastructure so Indigenous communities earn more, pay less, and never lose control of their capital.</p>
+                    </div>
+                    
+                    <a href="https://example.com/book" class="btn btn-primary">Book a 15-min intro</a>
+                </div>
+                
+                <div class="contact-form">
+                    <h4 style="margin-bottom: 1.5rem; color: var(--text-accent);">Send us a message</h4>
+                    <form onsubmit="handleContactSubmit(event)">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                    <p style="font-size: 0.8rem; color: var(--text-dark); margin-top: 1rem; opacity: 0.7;">This is a demo form. Messages are not sent.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="assets/logo.png" alt="" onerror="this.style.display='none'">
+                <span>LITTLE TREE CAPITAL</span>
+            </div>
+            <p class="footer-privacy">This demo does not store personal financial info.</p>
+            <p class="footer-disclaimer">For information only. Not financial, legal, or tax advice. Investment results are not guaranteed. Consult qualified professionals. Little Tree Capital strategies depend on your specific situation and applicable laws.</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <button class="chatbot-toggle" onclick="toggleChatbot()">
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+    </button>
+
+    <div class="chatbot-panel" id="chatbotPanel">
+        <div class="chatbot-header">
+            <h4>Ask Little Tree</h4>
+            <button class="chatbot-close" onclick="toggleChatbot()">&times;</button>
+        </div>
+        <div class="chat-disclaimer">Demo chatbot - not financial advice.</div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="chat-message bot">Hello! I am here to help you understand investment fees and your options. What would you like to know?</div>
+        </div>
+        <div class="chatbot-suggestions">
+            <p>Suggested questions:</p>
+            <button class="suggestion-btn" onclick="askQuestion('What is a fee?')">What is a fee?</button>
+            <button class="suggestion-btn" onclick="askQuestion('How do I compare funds vs a GIC?')">How do I compare funds vs a GIC?</button>
+            <button class="suggestion-btn" onclick="askQuestion('What questions should a band council ask?')">What questions should a band council ask?</button>
+            <button class="suggestion-btn" onclick="askQuestion('How could Little Tree Capital help?')">How could Little Tree Capital help?</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Navigation
+        function toggleMobileNav() {
+            document.getElementById('navLinks').classList.toggle('open');
+        }
+
+        // Tab Switching
+        function switchTab(index) {
+            const tabs = document.querySelectorAll('.tool-tab');
+            const contents = document.querySelectorAll('.tool-content');
+            
+            tabs.forEach((tab, i) => {
+                tab.classList.toggle('active', i === index);
+            });
+            
+            contents.forEach((content, i) => {
+                content.classList.toggle('active', i === index);
+            });
+        }
+
+        // Calculator Updates
+        function updateCalculations() {
+            const startAmount = parseFloat(document.getElementById('startAmount').value) || 0;
+            const years = parseFloat(document.getElementById('years').value) || 1;
+            const annualReturn = parseFloat(document.getElementById('annualReturn').value) || 0;
+            const mer = parseFloat(document.getElementById('mer').value) || 0;
+            const adminFee = parseFloat(document.getElementById('adminFee').value) || 0;
+            const advisorFee = parseFloat(document.getElementById('advisorFee').value) || 0;
+            const otherFee = parseFloat(document.getElementById('otherFee').value) || 0;
+            
+            const totalFees = mer + adminFee + advisorFee + otherFee;
+            const netReturn = annualReturn - totalFees;
+            
+            // Simplified demo calculation (not accurate - placeholder)
+            const grossEnd = startAmount * Math.pow(1 + annualReturn/100, years);
+            const netEnd = startAmount * Math.pow(1 + netReturn/100, years);
+            const feesLost = grossEnd - netEnd;
+            
+            const keepPercent = Math.round((netEnd / grossEnd) * 100);
+            const losePercent = 100 - keepPercent;
+            
+            document.getElementById('feesPaid').textContent = '$' + Math.round(feesLost).toLocaleString();
+            document.getElementById('endValue').textContent = '$' + Math.round(netEnd).toLocaleString();
+            document.getElementById('keepLose').textContent = keepPercent + '% / ' + losePercent + '%';
+        }
+
+        // Chatbot
+        function toggleChatbot() {
+            document.getElementById('chatbotPanel').classList.toggle('open');
+        }
+
+        const chatResponses = {
+            'What is a fee?': 'A fee is what you pay to have your money managed or held. Common fees include MER (Management Expense Ratio), admin fees, and advisor fees. These can add up to 2-3% per year, which may not sound like much, but over 20 years can reduce your wealth by 30-40%.',
+            'How do I compare funds vs a GIC?': 'Mutual funds offer potential for higher returns but come with market risk and higher fees (often 2%+). GICs offer guaranteed returns (usually 2-5%) with no market risk but are fully taxable. Little Tree Capital offers 6% fixed returns with tax-exempt status for eligible investors.',
+            'What questions should a band council ask?': 'Key questions include: What is our total fee burden across all investments? What is the tax impact on our returns? Who owns and controls our investment infrastructure? How do our net returns compare to alternatives? What governance structures protect our capital?',
+            'How could Little Tree Capital help?': 'Little Tree Capital offers 6% fixed annual returns that are tax-exempt under Section 87 of the Indian Act. We own and govern the investment infrastructure, ensuring Indigenous communities maintain control. Our structure is validated by Norton Rose and audited by PwC.'
+        };
+
+        function askQuestion(question) {
+            const messages = document.getElementById('chatMessages');
+            
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-message user';
+            userMsg.textContent = question;
+            messages.appendChild(userMsg);
+            
+            // Add bot response
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'chat-message bot';
+                botMsg.textContent = chatResponses[question] || 'I can help you understand that. For detailed questions, please book a call with our team.';
+                messages.appendChild(botMsg);
+                messages.scrollTop = messages.scrollHeight;
+            }, 500);
+            
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        // Contact Form
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            alert('This is a demo. In the full version, your message would be sent to our team.');
+        }
+
+        // Smooth Scroll for Nav Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close mobile nav if open
+                    document.getElementById('navLinks').classList.remove('open');
+                }
+            });
+        });
+
+        // Initialize calculations on load
+        document.addEventListener('DOMContentLoaded', updateCalculations);
+    </script>
+</body>
+</html>
